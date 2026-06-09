@@ -52,7 +52,7 @@ fun LyraAppTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = LyraTypography,
         content = content
     )
 }
