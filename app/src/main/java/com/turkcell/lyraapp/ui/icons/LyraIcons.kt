@@ -77,13 +77,13 @@ object LyraIcons {
             ) {
                 moveTo(7f, 4f)
                 lineTo(17f, 4f)
-                arcTo(2f, 2f, 0f, isMoreThanHalf = false, 1f, 19f, 6f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 19f, 6f)
                 lineTo(19f, 18f)
-                arcTo(2f, 2f, 0f, isMoreThanHalf = false, 1f, 17f, 20f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 17f, 20f)
                 lineTo(7f, 20f)
-                arcTo(2f, 2f, 0f, isMoreThanHalf = false, 1f, 5f, 18f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 5f, 18f)
                 lineTo(5f, 6f)
-                arcTo(2f, 2f, 0f, isMoreThanHalf = false, 1f, 7f, 4f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 7f, 4f)
                 close()
 
                 moveTo(11f, 17f)
@@ -107,26 +107,26 @@ object LyraIcons {
             ) {
                 moveTo(7f, 11f)
                 lineTo(17f, 11f)
-                arcTo(2f, 2f, 0f, isMoreThanHalf = false, 1f, 19f, 13f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 19f, 13f)
                 lineTo(19f, 20f)
-                arcTo(2f, 2f, 0f, isMoreThanHalf = false, 1f, 17f, 22f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 17f, 22f)
                 lineTo(7f, 22f)
-                arcTo(2f, 2f, 0f, isMoreThanHalf = false, 1f, 5f, 20f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 5f, 20f)
                 lineTo(5f, 13f)
-                arcTo(2f, 2f, 0f, isMoreThanHalf = false, 1f, 7f, 11f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 7f, 11f)
                 close()
 
                 moveTo(7f, 11f)
                 lineTo(7f, 7f)
-                arcTo(5f, 5f, 0f, isMoreThanHalf = false, 1f, 17f, 7f)
+                arcTo(5f, 5f, 0f, isMoreThanHalf = false, isPositiveArc = true, 17f, 7f)
                 lineTo(17f, 11f)
             }
             path(
                 fill = SolidColor(Color.Black)
             ) {
                 moveTo(12f, 15f)
-                arcTo(1.5f, 1.5f, 0f, isMoreThanHalf = true, 1f, 10.5f, 16.5f)
-                arcTo(1.5f, 1.5f, 0f, isMoreThanHalf = false, 1f, 12f, 15f)
+                arcTo(1.5f, 1.5f, 0f, isMoreThanHalf = true, isPositiveArc = true, 10.5f, 16.5f)
+                arcTo(1.5f, 1.5f, 0f, isMoreThanHalf = false, isPositiveArc = true, 12f, 15f)
                 close()
             }
         }.build()
@@ -153,8 +153,8 @@ object LyraIcons {
                 close()
 
                 moveTo(12f, 15f)
-                arcTo(3f, 3f, 0f, isMoreThanHalf = true, 1f, 15f, 12f)
-                arcTo(3f, 3f, 0f, isMoreThanHalf = false, 1f, 12f, 15f)
+                arcTo(3f, 3f, 0f, isMoreThanHalf = true, isPositiveArc = true, 15f, 12f)
+                arcTo(3f, 3f, 0f, isMoreThanHalf = false, isPositiveArc = true, 12f, 15f)
                 close()
             }
         }.build()

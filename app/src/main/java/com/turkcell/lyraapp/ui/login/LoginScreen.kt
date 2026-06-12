@@ -1,5 +1,6 @@
 package com.turkcell.lyraapp.ui.login
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -22,8 +23,12 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -32,11 +37,44 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.turkcell.lyraapp.ui.theme.LyraAppTheme
 import com.turkcell.lyraapp.ui.icons.LyraIcons
+import androidx.hilt.navigation.compose.hiltViewModel
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun LoginScreen(
-    phoneNumber: String,
-    password: String,
+    viewModel: LoginViewModel = hiltViewModel(),
+    onNavigateToHome: () -> Unit = {},
+    onNavigateToRegister: () -> Unit = {},
+    onNavigateToForgotPassword: () -> Unit = {},
+    modifier: Modifier = Modifier
+) {
+    val state by viewModel.state.collectAsState()
+    val context = LocalContext.current
+
+    LaunchedEffect(viewModel.effect) {
+        viewModel.effect.collectLatest { effect ->
+            when (effect) {
+                is LoginEffect.NavigateToHome -> onNavigateToHome()
+                is LoginEffect.NavigateToRegister -> onNavigateToRegister()
+                is LoginEffect.NavigateToForgotPassword -> onNavigateToForgotPassword()
+                is LoginEffect.ShowError -> {
+                    Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    LoginScreenContent(
+        state = state,
+        onEvent = viewModel::onEvent,
+        modifier = modifier
+    )
+}
+
+@Composable
+private fun LoginScreenContent(
+    state: LoginState,
+    onEvent: (LoginEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -52,18 +90,19 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(48.dp))
 
         LoginTextFields(
-            phoneNumber = phoneNumber,
-            onPhoneNumberChange = {},
-            password = password,
-            onPasswordChange = {}
+            phoneNumber = state.phoneNumber,
+            onPhoneNumberChange = { onEvent(LoginEvent.PhoneNumberChanged(it)) },
+            password = state.password,
+            onPasswordChange = { onEvent(LoginEvent.PasswordChanged(it)) }
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         LoginButtons(
-            onForgotPasswordClick = {},
-            onLoginClick = {},
-            onRegisterClick = {}
+            onForgotPasswordClick = { onEvent(LoginEvent.ForgotPasswordClicked) },
+            onLoginClick = { onEvent(LoginEvent.LoginClicked) },
+            onRegisterClick = { onEvent(LoginEvent.RegisterClicked) },
+            isLoading = state.isLoading
         )
     }
 }
@@ -199,6 +238,7 @@ private fun LoginButtons(
     onForgotPasswordClick: () -> Unit,
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
+    isLoading: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -231,16 +271,24 @@ private fun LoginButtons(
                 contentColor = MaterialTheme.colorScheme.onSurfaceVariant
             )
         ) {
-            Text(
-                text = "Giriş yap",
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Icon(
-                imageVector = LyraIcons.ArrowRight,
-                contentDescription = "Arrow Right",
-                modifier = Modifier.size(20.dp)
-            )
+            if (isLoading) {
+                androidx.compose.material3.CircularProgressIndicator(
+                    modifier = Modifier.size(24.dp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    strokeWidth = 2.dp
+                )
+            } else {
+                Text(
+                    text = "Giriş yap",
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Icon(
+                    imageVector = LyraIcons.ArrowRight,
+                    contentDescription = "Arrow Right",
+                    modifier = Modifier.size(20.dp)
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(32.dp))
@@ -264,9 +312,9 @@ private fun LoginButtons(
 @Composable
 private fun LoginScreenLightPreview() {
     LyraAppTheme(darkTheme = false) {
-        LoginScreen(
-            phoneNumber = "",
-            password = ""
+        LoginScreenContent(
+            state = LoginState(),
+            onEvent = {}
         )
     }
 }
@@ -275,9 +323,9 @@ private fun LoginScreenLightPreview() {
 @Composable
 private fun LoginScreenDarkPreview() {
     LyraAppTheme(darkTheme = true) {
-        LoginScreen(
-            phoneNumber = "",
-            password = ""
+        LoginScreenContent(
+            state = LoginState(),
+            onEvent = {}
         )
     }
 }
