@@ -202,4 +202,143 @@ object LyraIcons {
                 lineTo(12f, 5f)
             }
         }.build()
+
+    val Home: ImageVector
+        get() = ImageVector.Builder(
+            name = "Home",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.5f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(2f, 12f)
+                lineTo(12f, 3f)
+                lineTo(22f, 12f)
+                lineTo(20f, 12f)
+                lineTo(20f, 20f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 18f, 22f)
+                lineTo(6f, 22f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 4f, 20f)
+                lineTo(4f, 12f)
+                lineTo(2f, 12f)
+                close()
+            }
+        }.build()
+
+    val Search: ImageVector
+        get() = ImageVector.Builder(
+            name = "Search",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.5f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(11f, 19f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = true, isPositiveArc = true, 3f, 11f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 11f, 3f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 19f, 11f)
+                arcTo(8f, 8f, 0f, isMoreThanHalf = false, isPositiveArc = true, 11f, 19f)
+                close()
+
+                moveTo(21f, 21f)
+                lineTo(16.65f, 16.65f)
+            }
+        }.build()
+
+    val Library: ImageVector
+        get() = ImageVector.Builder(
+            name = "Library",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.5f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(4f, 6f)
+                lineTo(20f, 6f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 22f, 8f)
+                lineTo(22f, 18f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 20f, 20f)
+                lineTo(4f, 20f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 2f, 18f)
+                lineTo(2f, 8f)
+                arcTo(2f, 2f, 0f, isMoreThanHalf = false, isPositiveArc = true, 4f, 6f)
+                close()
+
+                moveTo(6f, 10f)
+                lineTo(6f, 16f)
+                moveTo(12f, 10f)
+                lineTo(12f, 16f)
+                moveTo(18f, 10f)
+                lineTo(18f, 16f)
+            }
+        }.build()
+
+    val Heart: ImageVector
+        get() = ImageVector.Builder(
+            name = "Heart",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.5f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(20.84f, 4.61f)
+                arcTo(5.5f, 5.5f, 0f, isMoreThanHalf = false, isPositiveArc = false, 5.17f, 20.75f)
+                lineTo(12f, 21.49f)
+                lineTo(18.82f, 20.75f)
+                arcTo(5.5f, 5.5f, 0f, isMoreThanHalf = false, isPositiveArc = false, 20.84f, 4.61f)
+                close()
+            }
+        }.build()
+
+    val Profile: ImageVector
+        get() = ImageVector.Builder(
+            name = "Profile",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.5f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(20f, 21f)
+                lineTo(20f, 19f)
+                arcTo(4f, 4f, 0f, isMoreThanHalf = false, isPositiveArc = false, 16f, 15f)
+                lineTo(8f, 15f)
+                arcTo(4f, 4f, 0f, isMoreThanHalf = false, isPositiveArc = false, 4f, 19f)
+                lineTo(4f, 21f)
+
+                moveTo(12f, 11f)
+                arcTo(4f, 4f, 0f, isMoreThanHalf = true, isPositiveArc = false, 12f, 3f)
+                arcTo(4f, 4f, 0f, isMoreThanHalf = false, isPositiveArc = false, 12f, 11f)
+                close()
+            }
+        }.build()
 }
