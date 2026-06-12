@@ -180,4 +180,26 @@ object LyraIcons {
                 lineTo(12f, 19f)
             }
         }.build()
+
+    val ArrowLeft: ImageVector
+        get() = ImageVector.Builder(
+            name = "ArrowLeft",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 1.5f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(19f, 12f)
+                lineTo(5f, 12f)
+                moveTo(12f, 19f)
+                lineTo(5f, 12f)
+                lineTo(12f, 5f)
+            }
+        }.build()
 }

@@ -1,4 +1,4 @@
-package com.turkcell.lyraapp.ui.login
+package com.turkcell.lyraapp.ui.auth.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

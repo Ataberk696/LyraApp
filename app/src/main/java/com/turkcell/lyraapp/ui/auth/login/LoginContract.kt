@@ -1,4 +1,4 @@
-package com.turkcell.lyraapp.ui.login
+package com.turkcell.lyraapp.ui.auth.login
 
 sealed class LoginEvent {
     data class PhoneNumberChanged(val phoneNumber: String) : LoginEvent()

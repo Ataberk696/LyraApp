@@ -1,7 +1,8 @@
-package com.turkcell.lyraapp.ui.login
+package com.turkcell.lyraapp.ui.auth.login
 
 import android.widget.Toast
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -254,7 +256,8 @@ private fun LoginButtons(
             Text(
                 text = "Şifremi unuttum",
                 color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold)
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
+                modifier = Modifier.clickable { onForgotPasswordClick() }
             )
         }
 
@@ -272,7 +275,7 @@ private fun LoginButtons(
             )
         ) {
             if (isLoading) {
-                androidx.compose.material3.CircularProgressIndicator(
+                CircularProgressIndicator(
                     modifier = Modifier.size(24.dp),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     strokeWidth = 2.dp
@@ -302,7 +305,8 @@ private fun LoginButtons(
             Text(
                 text = "Kayıt ol",
                 color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold)
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
+                modifier = Modifier.clickable { onRegisterClick() }
             )
         }
     }

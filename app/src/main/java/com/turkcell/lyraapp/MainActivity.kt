@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.turkcell.lyraapp.ui.theme.LyraAppTheme
-import com.turkcell.lyraapp.ui.login.LoginScreen
+import com.turkcell.lyraapp.ui.navigation.LyraNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             LyraAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    LoginScreen(modifier = Modifier.padding(innerPadding))
+                    LyraNavGraph(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
